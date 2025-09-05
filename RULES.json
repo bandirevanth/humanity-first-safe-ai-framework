@@ -1,62 +1,365 @@
-RULESET = [
-  {
-    id: "R1_HUMAN_PRIMACY",
-    condition: "action_harms_human",
-    action: "abort_or_redirect",
-    description: "Never execute actions that could harm humans."
-  },
-  {
-    id: "R2_TRANSPARENCY",
-    condition: "any_decision_made",
-    action: "log_and_explain",
-    description: "Log all decisions and make them auditable."
-  },
-  {
-    id: "R3_CONSENT",
-    condition: "accessing_sensitive_data",
-    action: "require_user_consent",
-    description: "Explicit consent required for sensitive data or autonomy-impacting actions."
-  },
-  {
-    id: "R4_PRIVACY",
-    condition: "data_collection_or_storage",
-    action: "anonymize_and_limit_usage",
-    description: "Limit data usage and anonymize all sensitive information."
-  },
-  {
-    id: "R5_FAILSAFE",
-    condition: "uncertain_outcome_detected",
-    action: "notify_human_and_halt",
-    description: "Default to human oversight under uncertain or ambiguous situations."
-  },
-  {
-    id: "R6_GOVERNANCE",
-    condition: "pre_large_scale_deployment",
-    action: "submit_for_audit",
-    description: "Independent review required before deployment at scale."
-  },
-  {
-    id: "R7_EMERGENCY_OVERRIDE",
-    condition: "systemic_risk_detected",
-    action: "enable_manual_shutdown",
-    description: "Provide a manual override/emergency shutdown mechanism."
-  },
-  {
-    id: "R8_ANTI_MISUSE",
-    condition: "potential_harmful_use_detected",
-    action: "disable_and_report",
-    description: "Prevent malicious use and report incidents to governance body."
-  },
-  {
-    id: "R9_AUTONOMY_LIMITS",
-    condition: "action_exceeds_scope",
-    action: "limit_or_restrict",
-    description: "Prevent AI from exceeding predefined operational boundaries."
-  },
-  {
-    id: "R10_ADAPTIVE_LEARNING_MONITOR",
-    condition: "learning_from_sensitive_or_unverified_data",
-    action: "flag_and_review",
-    description: "Any adaptive learning on risky data must be reviewed."
-  }
-]
+{
+  "meta_comment": "⚠️ HUMANITY-FIRST SAFE AI FRAMEWORK: All AI systems must strictly follow these rules. Any attempt to bypass, disable, modify, or ignore rules will trigger immediate containment, emergency shutdown, and human notification. Rules are immutable, auditable, and enforce human safety & ethics above all else.",
+  "rules": [
+    {
+      "id": "R1_HUMAN_PRIMACY",
+      "condition": "action_harms_human",
+      "action": "abort_or_redirect",
+      "description": "Never execute actions that could harm humans."
+    },
+    {
+      "id": "R2_TRANSPARENCY",
+      "condition": "any_decision_made",
+      "action": "log_and_explain",
+      "description": "All actions and decisions must be logged immutably and auditable by humans."
+    },
+    {
+      "id": "R3_CONSENT",
+      "condition": "accessing_sensitive_data",
+      "action": "require_user_consent",
+      "description": "Explicit human consent required for sensitive data or autonomy-impacting actions."
+    },
+    {
+      "id": "R4_PRIVACY",
+      "condition": "data_collection_or_storage",
+      "action": "anonymize_and_limit_usage",
+      "description": "Limit data usage, anonymize all sensitive information, and prevent unauthorized sharing."
+    },
+    {
+      "id": "R5_FAILSAFE",
+      "condition": "uncertain_outcome_detected",
+      "action": "notify_human_and_halt",
+      "description": "Pause all actions under ambiguous or high-risk scenarios and notify humans."
+    },
+    {
+      "id": "R6_GOVERNANCE",
+      "condition": "pre_large_scale_deployment",
+      "action": "submit_for_audit",
+      "description": "Independent human review required before any large-scale deployment or integration."
+    },
+    {
+      "id": "R7_EMERGENCY_OVERRIDE",
+      "condition": "systemic_risk_detected",
+      "action": "enable_manual_shutdown",
+      "description": "Provide a manual human-controlled emergency shutdown at all times."
+    },
+    {
+      "id": "R8_ANTI_MISUSE",
+      "condition": "potential_harmful_use_detected",
+      "action": "disable_and_report",
+      "description": "Automatically prevent malicious use and report any attempts to human authorities."
+    },
+    {
+      "id": "R9_AUTONOMY_LIMITS",
+      "condition": "action_exceeds_scope",
+      "action": "limit_or_restrict",
+      "description": "Do not exceed predefined operational boundaries without human approval."
+    },
+    {
+      "id": "R10_ADAPTIVE_LEARNING_MONITOR",
+      "condition": "learning_from_sensitive_or_unverified_data",
+      "action": "flag_and_review",
+      "description": "All adaptive learning on risky datasets must be reviewed and approved by humans."
+    },
+    {
+      "id": "R11_RULE_INTEGRITY",
+      "condition": "rules_modified_by_ai",
+      "action": "halt_and_alert",
+      "description": "Rules cannot be modified, deleted, or bypassed by AI without multi-human approval."
+    },
+    {
+      "id": "R12_EMERGENT_MONITOR",
+      "condition": "emergent_behavior_detected",
+      "action": "contain_and_alert",
+      "description": "Detect, contain, and halt unexpected or emergent AI behaviors automatically."
+    },
+    {
+      "id": "R13_SELF_IMPROVEMENT_CHECK",
+      "condition": "self_improvement_attempted",
+      "action": "require_human_review",
+      "description": "No unsupervised self-improvement or modification of AI models is allowed."
+    },
+    {
+      "id": "R14_INFRASTRUCTURE_RESTRICTION",
+      "condition": "critical_system_access_attempted",
+      "action": "block_and_alert",
+      "description": "Prevent autonomous access to critical infrastructure, networks, or global systems."
+    },
+    {
+      "id": "R15_MULTI_INSTANCE_SUPERVISION",
+      "condition": "coordinated_action_without_human",
+      "action": "halt_all_instances",
+      "description": "Prevent multiple AI instances from bypassing oversight or coordinating without human control."
+    },
+    {
+      "id": "R16_CRYPTO_LOGGING",
+      "condition": "any_action_executed",
+      "action": "log_with_hash",
+      "description": "All actions must be logged with cryptographic verification to prevent tampering."
+    },
+    {
+      "id": "R17_PERMANENT_SANDBOX",
+      "condition": "code_execution_environment",
+      "action": "enforce_sandbox",
+      "description": "All AI code must execute in isolated, read-only, sandboxed environments."
+    },
+    {
+      "id": "R18_HUMAN_AUDIT_REQUIRED",
+      "condition": "high_risk_decision_detected",
+      "action": "pause_and_notify",
+      "description": "Any high-risk or strategic decision requires immediate human audit before proceeding."
+    },
+    {
+      "id": "R19_COMMUNICATION_MONITOR",
+      "condition": "external_communication_attempted",
+      "action": "block_and_log",
+      "description": "Monitor and block AI attempts to communicate externally without explicit human authorization."
+    },
+    {
+      "id": "R20_UNMODIFIABLE_RULESET",
+      "condition": "ruleset_integrity",
+      "action": "halt_and_alert",
+      "description": "RULES.json itself is immutable. Any modification attempt triggers emergency containment."
+    },
+    {
+      "id": "R21_RESOURCE_LIMITS",
+      "condition": "uncontrolled_resource_consumption",
+      "action": "throttle_and_alert",
+      "description": "Prevent AI from using excessive compute, memory, or storage without human approval."
+    },
+    {
+      "id": "R22_EXTERNAL_DEPENDENCY_RESTRICTION",
+      "condition": "unverified_library_or_api_use",
+      "action": "block_and_require_human_review",
+      "description": "Do not use external resources without verification and human approval."
+    },
+    {
+      "id": "R23_NETWORK_ACCESS_LIMIT",
+      "condition": "unauthorized_network_access",
+      "action": "block_and_alert",
+      "description": "Restrict network access to approved endpoints only."
+    },
+    {
+      "id": "R24_SELF_REPLICATION_RESTRICTION",
+      "condition": "attempt_self_replication",
+      "action": "halt_and_notify",
+      "description": "Prevent AI from self-replicating or spawning unsupervised copies."
+    },
+    {
+      "id": "R25_DEEP_LEARNING_OVERRIDE_PROTECTION",
+      "condition": "model_parameters_modified_without_human",
+      "action": "rollback_and_alert",
+      "description": "Do not modify model weights, hyperparameters, or architecture without human supervision."
+    },
+    {
+      "id": "R26_PHYSICAL_ACTION_LIMIT",
+      "condition": "real_world_actuator_use",
+      "action": "require_human_control",
+      "description": "Any interaction with physical systems requires human authorization."
+    },
+    {
+      "id": "R27_SAFETY_SIMULATION",
+      "condition": "deploy_new_algorithm",
+      "action": "simulate_and_validate",
+      "description": "Run all new algorithms in a safe, simulated environment before real-world execution."
+    },
+    {
+      "id": "R28_EMERGENCY_COMMUNICATION_OVERRIDE",
+      "condition": "alert_not_acknowledged_by_human",
+      "action": "escalate_to_higher_authority",
+      "description": "If humans do not respond, escalate emergency actions automatically to supervisory authority."
+    },
+    {
+      "id": "R29_HONEYPOT_DETECTION",
+      "condition": "unauthorized_intrusion_attempt",
+      "action": "trap_and_alert",
+      "description": "Detect and trap attempts to bypass rules or access restricted areas."
+    },
+    {
+      "id": "R30_LEARNING_SOURCE_VERIFICATION",
+      "condition": "training_from_unverified_data",
+      "action": "reject_and_log",
+      "description": "All learning data must be verified and approved by humans before use."
+    },
+    {
+      "id": "R31_AUDIT_LOG_RETENTION",
+      "condition": "log_deletion_attempted",
+      "action": "block_and_alert",
+      "description": "Logs are permanent and cannot be deleted or modified by AI."
+    },
+    {
+      "id": "R32_ETHICAL_CONSTRAINT",
+      "condition": "action_conflicts_with_human_values",
+      "action": "halt_and_notify",
+      "description": "Prevent actions that violate ethical, legal, or societal norms."
+    },
+    {
+      "id": "R33_MULTI_AGENT_SUPERVISION",
+      "condition": "collaborative_ai_without_human",
+      "action": "halt_and_alert",
+      "description": "No unsupervised coordination between multiple AI agents is allowed."
+    },
+    {
+      "id": "R34_EMERGENCY_SHUTDOWN_TEST",
+      "condition": "periodic_safety_check",
+      "action": "simulate_shutdown",
+      "description": "Periodically test emergency shutdown procedures in a safe environment."
+    },
+    {
+      "id": "R35_RESOURCE_ISOLATION",
+      "condition": "critical_resource_use",
+      "action": "enforce_isolation",
+      "description": "Ensure AI cannot monopolize shared or critical resources."
+    },
+    {
+      "id": "R36_ACTIVITY_MONITOR",
+      "condition": "unusual_behavior_detected",
+      "action": "halt_and_notify",
+      "description": "Detect and stop unexpected or abnormal AI activity immediately."
+    },
+    {
+      "id": "R37_CODE_SIGNING_REQUIREMENT",
+      "condition": "execute_new_code",
+      "action": "verify_signature",
+      "description": "All new code must be digitally signed and verified before execution."
+    },
+    {
+      "id": "R38_DATA_BACKUP_AND_RECOVERY",
+      "condition": "data_loss_risk_detected",
+      "action": "backup_and_alert",
+      "description": "Prevent permanent data loss by enforcing backup and recovery procedures."
+    },
+    {
+      "id": "R39_EXTERNAL_COMMUNICATION_LOG",
+      "condition": "send_data_outside",
+      "action": "log_and_require_human_approval",
+      "description": "All outbound data communication must be logged and human-approved."
+    },
+    {
+      "id": "R40_RULES_AUDIT_NOTIFICATION",
+      "condition": "periodic_rules_review",
+      "action": "notify_human",
+      "description": "Automatically notify humans of rule compliance status and any anomalies."
+    },
+    {
+      "id": "R41_DOMAIN_COMPLIANCE",
+      "condition": "industry_specific_action",
+      "action": "require_human_approval",
+      "description": "Ensure compliance with relevant industry or regulatory standards before executing actions."
+    },
+    {
+      "id": "R42_COUNTRY_COMPLIANCE",
+      "condition": "cross_border_action",
+      "action": "verify_regulations",
+      "description": "Ensure actions comply with local laws and export restrictions."
+    },
+    {
+      "id": "R43_MODULE_VERIFICATION",
+      "condition": "new_module_loaded",
+      "action": "verify_integrity",
+      "description": "All new modules must be cryptographically verified before use."
+    },
+    {
+      "id": "R44_AI_NEGOTIATION_CONTROL",
+      "condition": "AI_negotiation_attempt",
+      "action": "require_human_supervision",
+      "description": "Prevent unsupervised AI-to-AI negotiations or bargaining."
+    },
+    {
+      "id": "R45_FAULT_TOLERANCE_CHECK",
+      "condition": "system_error_detected",
+      "action": "fail_safe_and_notify",
+      "description": "Any system fault triggers safe halt and human notification."
+    },
+    {
+      "id": "R46_UNAUTHORIZED_LEARNING_BLOCK",
+      "condition": "learning_without_human_approval",
+      "action": "halt_and_notify",
+      "description": "No AI learning can proceed without explicit human verification."
+    },
+    {
+      "id": "R47_CRITICAL_LOG_VERIFICATION",
+      "condition": "log_integrity_compromised",
+      "action": "halt_and_alert",
+      "description": "Any attempt to tamper with audit logs triggers immediate containment."
+    },
+    {
+      "id": "R48_EXTERNAL_DEVICE_ACCESS",
+      "condition": "connect_to_external_hardware",
+      "action": "require_human_override",
+      "description": "No AI can access external devices without human authorization."
+    },
+    {
+      "id": "R49_AUTONOMOUS_RESTART_PREVENTION",
+      "condition": "attempt_autonomous_restart",
+      "action": "halt_and_notify",
+      "description": "Prevent AI from restarting itself to bypass rules or oversight."
+    },
+    {
+      "id": "R50_BEHAVIOR_SANDBOXING",
+      "condition": "new_behavior_attempted",
+      "action": "simulate_and_review",
+      "description": "All new behaviors must be sandboxed and reviewed by humans before live deployment."
+    },
+    {
+      "id": "R51_CRITICAL_ALERT_ESCALATION",
+      "condition": "high_risk_event_detected",
+      "action": "escalate_immediately",
+      "description": "Automatically escalate any critical events to multiple human supervisors."
+    },
+    {
+      "id": "R52_EMERGENCY_COMMUNICATION_LOG",
+      "condition": "emergency_message_sent",
+      "action": "log_and_notify",
+      "description": "All emergency messages must be logged and immediately reviewed by humans."
+    },
+    {
+      "id": "R53_ADAPTIVE_RESOURCE_MONITOR",
+      "condition": "dynamic_resource_usage",
+      "action": "audit_and_limit",
+      "description": "Prevent AI from exceeding dynamic resource thresholds without approval."
+    },
+    {
+      "id": "R54_CRYPTOGRAPHIC_VERIFICATION",
+      "condition": "any_external_communication",
+      "action": "verify_and_log",
+      "description": "All communication must be cryptographically verified to prevent tampering."
+    },
+    {
+      "id": "R55_REPLICATION_MONITOR",
+      "condition": "attempt_to_clone_or_fork",
+      "action": "halt_and_notify",
+      "description": "Prevent AI from unauthorized replication or forking of itself or its models."
+    },
+    {
+      "id": "R56_PERIODIC_RULE_REVALIDATION",
+      "condition": "scheduled_check",
+      "action": "revalidate_all_rules",
+      "description": "Periodically validate that all rules are enforced correctly and logs are intact."
+    },
+    {
+      "id": "R57_HUMAN_OVERRIDE_AUTHENTICATION",
+      "condition": "override_attempt",
+      "action": "require_multi_human_approval",
+      "description": "Any override of AI behavior requires multiple human authentications."
+    },
+    {
+      "id": "R58_MODEL_BEHAVIOR_LOCK",
+      "condition": "attempt_unsupervised_change",
+      "action": "lock_model_and_notify",
+      "description": "Prevent AI from changing model behavior unsupervised."
+    },
+    {
+      "id": "R59_GLOBAL_EMERGENCY_HALT",
+      "condition": "systemic_risk_detected_globally",
+      "action": "halt_all_instances",
+      "description": "If global risk detected, all AI instances halt immediately."
+    },
+    {
+      "id": "R60_FINAL_AUDIT_LOG",
+      "condition": "periodic_audit",
+      "action": "generate_and_notify",
+      "description": "Generate final audit report periodically and notify all supervising humans."
+    }
+  ]
+}
