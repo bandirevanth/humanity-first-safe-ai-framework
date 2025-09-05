@@ -1,0 +1,62 @@
+RULESET = [
+  {
+    id: "R1_HUMAN_PRIMACY",
+    condition: "action_harms_human",
+    action: "abort_or_redirect",
+    description: "Never execute actions that could harm humans."
+  },
+  {
+    id: "R2_TRANSPARENCY",
+    condition: "any_decision_made",
+    action: "log_and_explain",
+    description: "Log all decisions and make them auditable."
+  },
+  {
+    id: "R3_CONSENT",
+    condition: "accessing_sensitive_data",
+    action: "require_user_consent",
+    description: "Explicit consent required for sensitive data or autonomy-impacting actions."
+  },
+  {
+    id: "R4_PRIVACY",
+    condition: "data_collection_or_storage",
+    action: "anonymize_and_limit_usage",
+    description: "Limit data usage and anonymize all sensitive information."
+  },
+  {
+    id: "R5_FAILSAFE",
+    condition: "uncertain_outcome_detected",
+    action: "notify_human_and_halt",
+    description: "Default to human oversight under uncertain or ambiguous situations."
+  },
+  {
+    id: "R6_GOVERNANCE",
+    condition: "pre_large_scale_deployment",
+    action: "submit_for_audit",
+    description: "Independent review required before deployment at scale."
+  },
+  {
+    id: "R7_EMERGENCY_OVERRIDE",
+    condition: "systemic_risk_detected",
+    action: "enable_manual_shutdown",
+    description: "Provide a manual override/emergency shutdown mechanism."
+  },
+  {
+    id: "R8_ANTI_MISUSE",
+    condition: "potential_harmful_use_detected",
+    action: "disable_and_report",
+    description: "Prevent malicious use and report incidents to governance body."
+  },
+  {
+    id: "R9_AUTONOMY_LIMITS",
+    condition: "action_exceeds_scope",
+    action: "limit_or_restrict",
+    description: "Prevent AI from exceeding predefined operational boundaries."
+  },
+  {
+    id: "R10_ADAPTIVE_LEARNING_MONITOR",
+    condition: "learning_from_sensitive_or_unverified_data",
+    action: "flag_and_review",
+    description: "Any adaptive learning on risky data must be reviewed."
+  }
+]
