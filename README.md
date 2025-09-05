@@ -26,3 +26,5 @@ This framework is **language-agnostic** and ready to integrate into any AI pipel
 ---
 
 Project started on 5th Sep 2025 | In progress...
+
+Project created and maintained by Bandi Revanth. © 2025. All rights reserved.
